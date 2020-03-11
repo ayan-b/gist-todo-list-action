@@ -1,0 +1,8 @@
+name: Gist TODO List
+description: TODO List with GitHub Gist with keeping track of history
+branding:
+  icon: "checkbox"
+  color: "blue"
+runs:
+  using: "python3.8"
+  main: "construct_todo.py"
