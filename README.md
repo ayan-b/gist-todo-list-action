@@ -15,9 +15,8 @@ After midnight your done tasks will be transferred to the done list. In this
 way you will have a history of your list!
 
 | Todo | Done |
-|----------------------------|--------------------------:
+|----------------------------|--------------------------|
 | ![after todo](images/after-todo.png) | ![done](images/done.png) |
-
 
 ## Usage
 
