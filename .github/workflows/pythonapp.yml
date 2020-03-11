@@ -36,3 +36,7 @@ jobs:
     - name: Update todo list
       run: |
         python3 construct_todo.py
+      env: |
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        TODO_GIST: ${{ secrets.TODO_GIST }}
+        DONE_GIST: ${{ secrets.DONE_GIST }}
