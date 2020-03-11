@@ -94,7 +94,7 @@ def add_to_done(done, previous_done):
 def make_todolist(path_to_todo, path_to_done):
     todo_gist_id = os.environ["TODO_GIST"]
     done_gist_id = os.environ["DONE_GIST"]
-    token = os.environ["GITHUB_TOKEN"]
+    token = os.environ["GH_TOKEN"]
     todo_list_gist = Gist(todo_gist_id, token)
     todo_list = todo_list_gist.get_content(path_to_todo)
     done_list_gist = Gist(done_gist_id, token)
