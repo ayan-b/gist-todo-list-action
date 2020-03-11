@@ -1,4 +1,4 @@
-name: Update TODO List
+name: Update Todo List
 
 on:
   push:

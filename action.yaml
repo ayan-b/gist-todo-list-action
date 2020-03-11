@@ -1,5 +1,5 @@
-name: Gist TODO List
-description: TODO List with GitHub Gist with keeping track of history
+name: Gist Todo List
+description: Todo List with GitHub Gist. Also keep track of Todo history.
 branding:
   icon: "checkbox"
   color: "blue"

@@ -82,19 +82,33 @@ def update_todo(not_done):
 
 def add_to_done(done, previous_done):
     today = date.today()
+    formatted_date = str(today.strftime("%B %d, %Y"))
+    previous_done = previous_done.split('\n')
     if not done:
-        return previous_done
-    formatted_date = today.strftime("%B %d, %Y")
+        return '\n'.join(previous_done)
+    # remove first line
+    if len(previous_done) > 0:
+        previous_done.remove(previous_done[0])
+    date_string = ''
+    is_found = False
+    for i in range(len(previous_done)):
+        if previous_done[i].strip():
+            if previous_done[i].find(formatted_date) != -1:
+                is_found = True
+                previous_done.remove(previous_done[i])
+            break
     date_string = '## Completed on ' + formatted_date + '\n\n'
-    done = date_string + '\n'.join(done) + '\n\n'
-    final_done = done + previous_done
+    done = date_string + '\n'.join(done)
+    if is_found == False:
+        done += '\n'
+    final_done = '# Done list\n\n' + done + '\n'.join(previous_done)
     return final_done
 
 
 def make_todolist(path_to_todo, path_to_done):
-    todo_gist_id = os.environ["TODO_GIST"]
-    done_gist_id = os.environ["DONE_GIST"]
-    token = os.environ["GH_TOKEN"]
+    todo_gist_id = os.environ['TODO_GIST']
+    done_gist_id = os.environ['DONE_GIST']
+    token = os.environ['GH_TOKEN']
     todo_list_gist = Gist(todo_gist_id, token)
     todo_list = todo_list_gist.get_content(path_to_todo)
     done_list_gist = Gist(done_gist_id, token)
