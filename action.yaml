@@ -1,4 +1,4 @@
-name: Gist Todo List
+name: Todo List using GitHub Gist
 description: Todo List with GitHub Gist. Also keep track of Todo history.
 branding:
   icon: "checkbox"
