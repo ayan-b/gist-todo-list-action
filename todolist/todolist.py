@@ -1,7 +1,8 @@
-from datetime import date
+from datetime import datetime, timezone
 import json
 import os
 
+import pytz
 import requests
 
 
@@ -80,9 +81,19 @@ def update_todo(not_done):
     return '\n'.join(not_done)
 
 
+def get_time_wrt_time_zone():
+    utc_date = datetime.today()
+    custom_timezone = pytz.timezone('UTC')
+    try:
+        custom_timezone = pytz.timezone(os.environ['TIME_ZONE'])
+    except Exception:
+        pass
+    today = utc_date.astimezone(custom_timezone).strftime("%B %d, %Y")
+    return today
+
+
 def add_to_done(done, previous_done):
-    today = date.today()
-    formatted_date = str(today.strftime("%B %d, %Y"))
+    formatted_date = get_time_wrt_time_zone()
     previous_done = previous_done.split('\n')
     if not done:
         return '\n'.join(previous_done)
@@ -101,7 +112,7 @@ def add_to_done(done, previous_done):
     done = date_string + '\n'.join(done)
     if is_found == False:
         done += '\n'
-    final_done = '# Done list\n\n' + done + '\n'.join(previous_done)
+    final_done = '# Done \n\n' + done + '\n'.join(previous_done)
     return final_done
 
 
