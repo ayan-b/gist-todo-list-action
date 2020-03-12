@@ -28,7 +28,8 @@ way you will have a history of your list!
 - Generate a new personal access token with gist scope from
   here: <https://github.com/settings/tokens/new>.
 
-- Fork this repository.
+- Fork this repository. Note that if you want to use GitHub Action from market place,
+  you don't need to fork this repository. See [this](#using-with-github-action) for more instruction.
 
 - Add the gist IDs as `TODO_GIST`, `DONE_GIST` and the personal access token as
  `GH_TOKEN` to your repository secrets: `https://github.com/<your_username>/<repository_name>/settings/secrets`.
@@ -84,6 +85,39 @@ jobs:
     - name: Update todo list
       run: |
         python3 construct_todo.py
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        TODO_GIST: ${{ secrets.TODO_GIST }}
+        DONE_GIST: ${{ secrets.DONE_GIST }}
+        TIME_ZONE: "Asia/Kolkata" # IST
+```
+
+Note that you can use docker as well in the last step (`Update todo list`) as done
+in the [`update-list.yml`](.github/workflows/update-list.yml) file. But it will
+be slower. You can also omit the `Lint with flake8` step.
+
+### Using with GitHub action
+
+If you want to use GitHub action, your workflow yaml file will look something like
+this (be sure to change the version to latest one):
+
+```yaml
+name: Update Todo List IST
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: "30 5 * * *"  # 0 + time zone difference time
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Todo List using GitHub Gist
+      uses: ayan-b/gist-todo-list-action@0.1.0
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         TODO_GIST: ${{ secrets.TODO_GIST }}
