@@ -57,7 +57,7 @@ on:
   pull_request:
     branches: [ master ]
   schedule:
-    - cron: "5 30 * * *"  # 0 + time zone difference time
+    - cron: "30 5 * * *"  # 0 + time zone difference time
 
 jobs:
   build:
