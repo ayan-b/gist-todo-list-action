@@ -6,7 +6,7 @@
 
 Create a Todo List in a GitHub Gist (following the
 [task list syntax](https://help.github.com/en/github/managing-your-work-on-github/about-task-lists#creating-task-lists))
-and create a list and check the tasks you have done off during the day.
+and create a list, and check the tasks you have done off during the day.
 
 ![before todo](images/before-todo.png)
 
@@ -99,7 +99,7 @@ be slower. You can also omit the `Lint with flake8` step.
 ### Using with GitHub action
 
 If you want to use GitHub action, your workflow yaml file will look something like
-this (be sure to change the version to latest one):
+this (be sure to change the version to the latest one):
 
 ```yaml
 name: Update Todo List IST
