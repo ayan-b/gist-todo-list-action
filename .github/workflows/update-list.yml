@@ -31,10 +31,4 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Update todo list
-      uses: docker
-      image: Dockerfile
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        TODO_GIST: ${{ secrets.TODO_GIST }}
-        DONE_GIST: ${{ secrets.DONE_GIST }}
-        TIME_ZONE: "UTC"
+      uses: ./

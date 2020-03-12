@@ -6,3 +6,8 @@ branding:
 runs:
   using: "docker"
   image: "Dockerfile"
+  env:
+    GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    TODO_GIST: ${{ secrets.TODO_GIST }}
+    DONE_GIST: ${{ secrets.DONE_GIST }}
+    TIME_ZONE: "UTC"
