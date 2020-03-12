@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime
 import json
 import os
 
@@ -28,11 +28,10 @@ class Gist:
                 data=json.dumps(content)
             )
             return r.json()
-            
 
     def update_gist(self, file_name, content, todo):
         description = ''
-        if todo == True:
+        if todo is True:
             description = 'My todo list!'
         else:
             description = 'My done list!'
@@ -50,8 +49,7 @@ class Gist:
             api_end=f'/gists/{self.id}',
             content=request_content,
         )
-        
-    
+
     def get_content(self, file_name):
         data = self._form_request(
             request_type='GET',
@@ -110,7 +108,7 @@ def add_to_done(done, previous_done):
             break
     date_string = '## Completed on ' + formatted_date + '\n\n'
     done = date_string + '\n'.join(done)
-    if is_found == False:
+    if is_found is False:
         done += '\n'
     final_done = '# Done \n\n' + done + '\n'.join(previous_done)
     return final_done

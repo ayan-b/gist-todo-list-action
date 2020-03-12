@@ -4,5 +4,5 @@ branding:
   icon: "check-square"
   color: "blue"
 runs:
-  using: "python3.8"
-  main: "construct_todo.py"
+  using: "docker"
+  main: "Dockerfile"
