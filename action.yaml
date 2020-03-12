@@ -1,8 +1,0 @@
-name: Todo List using GitHub Gist
-description: Todo List with GitHub Gist. Also keep track of Todo history.
-branding:
-  icon: "check-square"
-  color: "blue"
-runs:
-  using: "docker"
-  image: "Dockerfile"
