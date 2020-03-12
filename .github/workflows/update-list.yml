@@ -32,3 +32,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Update todo list
       uses: ./
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        TODO_GIST: ${{ secrets.TODO_GIST }}
+        DONE_GIST: ${{ secrets.DONE_GIST }}
+        TIME_ZONE: "UTC"

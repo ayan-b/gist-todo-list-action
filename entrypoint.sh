@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python3 construct_todo.py
+python3 /construct_todo.py
