@@ -1,7 +1,7 @@
 name: Todo List using GitHub Gist
 description: Todo List with GitHub Gist. Also keep track of Todo history.
 branding:
-  icon: "checkbox"
+  icon: "check-square"
   color: "blue"
 runs:
   using: "python3.8"
