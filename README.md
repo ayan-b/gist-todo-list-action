@@ -4,8 +4,9 @@
 
 ### Before
 
-Create a Todo List in a GitHub Gist (following the task list syntax) and
-create a list and check the off during the day.
+Create a Todo List in a GitHub Gist (following the
+[task list syntax](https://help.github.com/en/github/managing-your-work-on-github/about-task-lists#creating-task-lists))
+and create a list and check the tasks you have done off during the day.
 
 ![before todo](images/before-todo.png)
 
