@@ -30,7 +30,7 @@ way you will have a history of your list!
 
 - Fork this repository.
 
-- Add the gist IDs as `TODO_ID`, `DONE_ID` and the personal access token as
+- Add the gist IDs as `TODO_GIST`, `DONE_GIST` and the personal access token as
  `GH_TOKEN` to your repository secrets: `https://github.com/<your_username>/<repository_name>/settings/secrets`
   It will look something like this:
 
